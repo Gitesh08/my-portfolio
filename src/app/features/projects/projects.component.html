@@ -1,0 +1,36 @@
+<section class="projects-page">
+    <div class="projects-container">
+        <a routerLink="/" class="btn-pill back-btn fade-up" appScrollAnimate>
+            <span class="icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </span>
+            Back to Home
+        </a>
+        <div class="page-header fade-up" appScrollAnimate>
+            <h1 class="page-title">MY WORK</h1>
+            <p class="page-subtitle">A selection of my recent featured projects</p>
+        </div>
+
+        <div class="projects-grid">
+            <div *ngFor="let project of projects; let i = index"
+                class="project-card fade-up delay-{{ (i % 3 + 1) * 100 }}" appScrollAnimate
+                [ngStyle]="{'background-image': project.imageUrl ? 'url(' + project.imageUrl + ')' : 'var(--bg-surface)'}"
+                (click)="openProject(project)" tabindex="0" (keydown.enter)="openProject(project)">
+                <div class="project-overlay">
+                    <span class="view-text">View Project</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <span class="project-tag">{{ project.tags[0] }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Modal -->
+<app-project-modal [project]="selectedProject()" [isOpen]="isModalOpen()" (close)="closeModal()">
+</app-project-modal>

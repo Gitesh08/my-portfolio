@@ -1,0 +1,203 @@
+[33mΓ¥»[39m Building...
+[32mΓ£ö[39m Building...
+Application bundle generation failed. [2.957 seconds] - 2026-03-11T20:29:29.901Z
+
+X [ERROR] TS2339: Property 'spanLevel' does not exist on type '{ id: number; title: string; tags: string[]; description: string; imageUrl: string; githubUrl: string; liveUrl: string; role: string; client: string; technologies: string[]; overview: string[]; challenges: string[]; solutions: string[]; features: string[]; } | { ...; }'.
+  Property 'spanLevel' does not exist on type '{ id: number; title: string; tags: string[]; description: string; imageUrl: string; githubUrl: string; liveUrl: string; role: string; client: string; technologies: string[]; overview: string[]; challenges: string[]; solutions: string[]; features: string[]; }'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:33:49:
+      33 Γöé                 class="gallery-item span-{{ item.spanLevel }}"
+         Γò╡                                                  ~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'openLightbox' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:34:25:
+      34 Γöé                 (click)="openLightbox(i)" tabindex="0" (keydown.en...
+         Γò╡                          ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'openLightbox' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:34:72:
+      34 Γöé ...="openLightbox(i)" tabindex="0" (keydown.enter)="openLightbox(i)">
+         Γò╡                                                     ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'category' does not exist on type '{ id: number; title: string; tags: string[]; description: string; imageUrl: string; githubUrl: string; liveUrl: string; role: string; client: string; technologies: string[]; overview: string[]; challenges: string[]; solutions: string[]; features: string[]; } | { ...; }'.
+  Property 'category' does not exist on type '{ id: number; title: string; tags: string[]; description: string; imageUrl: string; githubUrl: string; liveUrl: string; role: string; client: string; technologies: string[]; overview: string[]; challenges: string[]; solutions: string[]; features: string[]; }'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:46:63:
+      46 Γöé ...         <span class="gallery-category">{{ item.category }}</span>
+         Γò╡                                                    ~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'lightboxOpen' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:55:44:
+      55 Γöé ...ox-overlay" [class.open]="lightboxOpen()" (click)="closeLightbo...
+         Γò╡                              ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'closeLightbox' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:55:69:
+      55 Γöé ...-overlay" [class.open]="lightboxOpen()" (click)="closeLightbox()">
+         Γò╡                                                     ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'closeLightbox' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:57:72:
+      57 Γöé ...tbox-close" aria-label="Close Lightbox" (click)="closeLightbox()">
+         Γò╡                                                     ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'prevImage' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:64:75:
+      64 Γöé ...alogs.length > 1" (click)="prevImage($event)" aria-label="Previ...
+         Γò╡                               ~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'activeImageIndex' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:72:33:
+      72 Γöé ...   <img [src]="catalogs[activeImageIndex()].imageUrl" [alt]="ca...
+         Γò╡                            ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'activeImageIndex' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:72:79:
+      72 Γöé ...ageUrl" [alt]="catalogs[activeImageIndex()].title" class="light...
+         Γò╡                            ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'activeImageIndex' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:74:32:
+      74 Γöé                 <h4>{{ catalogs[activeImageIndex()].title }}</h4>
+         Γò╡                                 ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'activeImageIndex' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:75:31:
+      75 Γöé                 <p>{{ catalogs[activeImageIndex()].category }}</p>
+         Γò╡                                ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'category' does not exist on type '{ id: number; title: string; tags: string[]; description: string; imageUrl: string; githubUrl: string; liveUrl: string; role: string; client: string; technologies: string[]; overview: string[]; challenges: string[]; solutions: string[]; features: string[]; } | { ...; }'.
+  Property 'category' does not exist on type '{ id: number; title: string; tags: string[]; description: string; imageUrl: string; githubUrl: string; liveUrl: string; role: string; client: string; technologies: string[]; overview: string[]; challenges: string[]; solutions: string[]; features: string[]; }'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:75:51:
+      75 Γöé                 <p>{{ catalogs[activeImageIndex()].category }}</p>
+         Γò╡                                                    ~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'nextImage' does not exist on type 'HomeCatalogsComponent'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.html:80:75:
+      80 Γöé ...alogs.length > 1" (click)="nextImage($event)" aria-label="Next ...
+         Γò╡                               ~~~~~~~~~
+
+  Error occurs in the template of component HomeCatalogsComponent.
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:12:17:
+      12 Γöé     templateUrl: './home-catalogs.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'CatalogItem'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:4:9:
+      4 Γöé import { CatalogItem } from '../../../catalogs/catalogs.component';
+        Γò╡          ~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'CatalogItem'. [plugin angular-compiler]
+
+    src/app/features/home/components/home-catalogs/home-catalogs.component.ts:6:9:
+      6 Γöé import { CatalogItem } from '../../../catalogs/catalogs.component';
+        Γò╡          ~~~~~~~~~~~
+
+

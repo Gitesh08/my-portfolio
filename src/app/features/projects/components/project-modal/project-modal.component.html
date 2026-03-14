@@ -1,0 +1,153 @@
+<div class="modal-backdrop" [class.open]="isOpen" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+
+        <!-- Header row: close + expand icon side by side -->
+        <div class="modal-header-actions">
+            <button class="header-icon-btn"
+                *ngIf="(project?.images?.length > 0) || project?.imageUrl"
+                (click)="openGallery($event)"
+                aria-label="View full gallery">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+                </svg>
+            </button>
+            <button class="header-icon-btn close" (click)="closeModal()" aria-label="Close modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal-body" *ngIf="project">
+            <ng-container *ngIf="project.images && project.images.length > 0; else singleImage">
+                <div class="modal-carousel">
+                    <button class="carousel-btn prev" (click)="prevImage($event)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <img [src]="project.images[currentImageIndex]" [alt]="project.title + ' preview'" class="carousel-image">
+                    <button class="carousel-btn next" (click)="nextImage($event)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="carousel-indicators">
+                        <span class="dot" *ngFor="let img of project.images; let i = index"
+                              [class.active]="i === currentImageIndex"
+                              (click)="setCurrentImage(i, $event)"></span>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #singleImage>
+                <div class="modal-image-placeholder" *ngIf="!project.imageUrl">
+                    <span class="placeholder-text">{{ project.title }} Preview</span>
+                </div>
+                <div class="modal-image-single" *ngIf="project.imageUrl">
+                    <img [src]="project.imageUrl" [alt]="project.title + ' preview'" class="carousel-image">
+                </div>
+            </ng-template>
+
+            <div class="modal-details">
+                <h2 class="modal-title">{{ project.title }}</h2>
+                <div class="modal-tags">
+                    <span class="badge" *ngFor="let tag of project.tags">{{ tag }}</span>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-pill primary" *ngIf="project.showDemoButton !== false" (click)="openLink('mailto:giteshmahadik@example.com?subject=Demo%20Request%20-%20' + project.title)">Book a Demo</button>
+                    <button class="btn-pill" *ngIf="project.showLiveButton !== false && project.liveUrl" (click)="openLink(project.liveUrl)">Visit Live Site</button>
+                    <button class="btn-pill" *ngIf="project.showGithubButton && project.githubUrl" (click)="openLink(project.githubUrl)">
+                        <span class="icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </span>
+                        View GitHub
+                    </button>
+                </div>
+
+                <p class="modal-description">{{ project.description }}</p>
+
+                <div class="modal-section" *ngIf="project.overview?.length > 0">
+                    <p *ngFor="let p of project.overview" class="modal-text">{{ p }}</p>
+                </div>
+
+                <div class="modal-section" *ngIf="project.highlights?.length > 0">
+                    <h3 class="section-title">The Tech & Features</h3>
+                    <ul class="highlights-list">
+                        <li *ngFor="let highlight of project.highlights">
+                            <strong>{{ highlight.title }}:</strong> {{ highlight.description }}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" *ngIf="project.features?.length > 0">
+                    <h3 class="section-title">Features</h3>
+                    <ul class="modal-list">
+                        <li *ngFor="let item of project.features">{{ item }}</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" *ngIf="project.challenges?.length > 0">
+                    <h3 class="section-title">Challenges</h3>
+                    <ul class="modal-list">
+                        <li *ngFor="let item of project.challenges">{{ item }}</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" *ngIf="project.solutions?.length > 0">
+                    <h3 class="section-title">Solutions</h3>
+                    <ul class="modal-list">
+                        <li *ngFor="let item of project.solutions">{{ item }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FULLSCREEN GALLERY LIGHTBOX ===== -->
+<div class="gallery-lightbox" [class.open]="isGalleryOpen" (click)="closeGallery()">
+    <div class="gallery-inner" (click)="$event.stopPropagation()">
+        <!-- Top bar -->
+        <div class="gallery-topbar">
+            <span class="gallery-counter">{{ galleryIndex + 1 }} / {{ galleryImages.length }}</span>
+            <button class="gallery-close-btn" (click)="closeGallery()" aria-label="Close gallery">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Main image -->
+        <div class="gallery-image-area">
+            <button class="gallery-nav prev" (click)="galleryPrev($event)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <img *ngIf="galleryImages.length > 0"
+                 [src]="galleryImages[galleryIndex]"
+                 [alt]="'Image ' + (galleryIndex + 1)"
+                 class="gallery-full-img">
+            <button class="gallery-nav next" (click)="galleryNext($event)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Thumbnail strip -->
+        <div class="gallery-thumbs">
+            <img *ngFor="let img of galleryImages; let i = index"
+                 [src]="img"
+                 [class.active]="i === galleryIndex"
+                 (click)="setGalleryIndex(i)"
+                 class="gallery-thumb"
+                 [alt]="'Thumbnail ' + (i + 1)">
+        </div>
+    </div>
+</div>

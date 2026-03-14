@@ -1,0 +1,238 @@
+.projects-page {
+    padding: 8rem 2rem 4rem;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-btn {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+}
+
+.back-btn .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg-primary);
+    transition: var(--transition);
+}
+
+.back-btn:hover .icon {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.4);
+}
+
+.page-header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    position: relative;
+    height: 400px;
+    border-radius: var(--radius-card);
+    background: var(--bg-surface);
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+/* Dark gradient overlay at the bottom of each card */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+    z-index: 0;
+    transition: var(--transition);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(204, 255, 0, 0.9);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.view-text {
+    color: var(--bg-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+    opacity: 0;
+}
+
+.project-card:hover .project-overlay,
+.project-card:focus .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover .view-text,
+.project-card:focus .view-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-info {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-info {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.project-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.project-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    background: var(--bg-surface-light);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .projects-page {
+        padding: 6rem 1.25rem 3rem;
+    }
+
+    .page-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        height: 280px;
+        padding: 1.25rem;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .project-card:active .project-overlay,
+    .project-card:focus .project-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .project-card:active .view-text,
+    .project-card:focus .view-text {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .project-card:active .project-info {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .view-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-page {
+        padding: 5rem 1rem 2.5rem;
+    }
+
+    .project-card {
+        height: 240px;
+        padding: 1rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .view-text {
+        font-size: 1rem;
+    }
+
+    .back-btn {
+        font-size: 0.875rem;
+        padding: 0.4rem 1rem 0.4rem 0.4rem;
+    }
+
+    .back-btn .icon {
+        width: 28px;
+        height: 28px;
+    }
+}

@@ -1,0 +1,72 @@
+<section class="projects-page">
+    <div class="projects-container">
+
+        <div class="blogs-header-nav">
+            <a routerLink="/" class="btn-pill back-btn fade-up" appScrollAnimate>
+                <span class="icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </span>
+                Back to Home
+            </a>
+
+            <button (click)="viewProfile()" class="btn-pill subscribe-btn fade-up delay-100" appScrollAnimate>
+                <span class="desktop-text">Subscribe to get more stories</span><span class="mobile-text">Subscribe</span>
+                <span class="icon active-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                        </path>
+                        <polyline points="22 6 12 13 2 6"></polyline>
+                    </svg>
+                </span>
+            </button>
+        </div>
+
+        <div class="page-header fade-up" appScrollAnimate>
+            <h1 class="page-title">MY WRITING</h1>
+            <p class="page-subtitle">A collection of my recent articles on Medium</p>
+        </div>
+
+        <!-- Skeleton Loader -->
+        <ng-container *ngIf="isLoading">
+            <div class="projects-grid">
+                <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="project-card skeleton-card">
+                    <div class="skeleton-thumbnail"></div>
+                    <div class="project-info">
+                        <div class="skeleton-title"></div>
+                        <div class="blog-meta flex-gap">
+                            <div class="skeleton-tag"></div>
+                            <div class="skeleton-tag date-tag"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- Actual Blog Content -->
+        <div class="projects-grid" *ngIf="!isLoading && blogs.length > 0">
+            <div *ngFor="let blog of blogs; let i = index" class="project-card fade-up" appScrollAnimate
+                (click)="openBlog(blog.url)" tabindex="0" (keydown.enter)="openBlog(blog.url)">
+
+                <img *ngIf="blog.thumbnail" [src]="blog.thumbnail" [alt]="blog.title" class="blog-thumbnail"
+                    loading="lazy">
+
+                <div class="project-overlay">
+                    <span class="view-text">Read Story</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">{{ blog.title }}</h3>
+                    <div class="blog-meta flex-gap">
+                        <span class="project-tag">{{ blog.tags[0] }}</span>
+                        <span class="project-tag date-tag" *ngIf="blog.pubDate">{{ blog.pubDate }}</span>
+                        <span class="project-tag date-tag" *ngIf="blog.readingTime">{{ blog.readingTime }} min
+                            read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

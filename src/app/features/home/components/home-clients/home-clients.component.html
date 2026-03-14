@@ -1,0 +1,10 @@
+<section class="clients-section">
+    <div class="clients-container">
+        <div class="clients-grid">
+            <div *ngFor="let client of clients; let i = index" class="client-logo fade-up delay-{{ (i % 3 + 1) * 100 }}"
+                appScrollAnimate>
+                {{ client.name }}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+[33mΓ¥»[39m Building...
+[32mΓ£ö[39m Building...
+Application bundle generation failed. [2.137 seconds] - 2026-03-08T14:58:24.369Z
+Γû▓ [WARNING] NG8113: ScrollAnimate is not used within the template of HeaderComponent [plugin angular-compiler]
+
+
+    src/app/layout/header/header.component.ts:9:42:
+      9 Γöé     imports: [CommonModule, RouterModule, ScrollAnimate],
+        Γò╡                                           ~~~~~~~~~~~~~
+
+
+X [ERROR] NG5002: Unexpected closing tag "nav". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags [plugin angular-compiler]
+
+    src/app/layout/header/header.component.html:45:4:
+      45 Γöé     </nav>
+         Γò╡     ~~~~~~
+
+  Error occurs in the template of component HeaderComponent.
+
+    src/app/layout/header/header.component.ts:10:17:
+      10 Γöé     templateUrl: './header.component.html',
+         Γò╡                  ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

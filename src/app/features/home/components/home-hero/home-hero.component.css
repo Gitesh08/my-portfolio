@@ -1,0 +1,324 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 2rem;
+    overflow: hidden;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(204, 255, 0, 0.08) 0%, rgba(0, 0, 0, 0) 60%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-layout {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+    z-index: 2;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 300px;
+    /* Push slightly down to align with shoulders in original design */
+    transform: translateY(-2rem);
+}
+
+.hero-left {
+    text-align: left;
+}
+
+.hero-right {
+    text-align: left;
+}
+
+.accent-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+}
+
+.hero-role {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-main);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.hero-bio {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.hero-center {
+    position: relative;
+    flex: 0 0 center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 480px;
+    width: 550px;
+    /* Pull everything in the center slightly up */
+    margin-top: -3rem;
+}
+
+.name-display {
+    position: absolute;
+    bottom: -5%;
+    /* Place below shoulder area */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 3;
+    width: 100%;
+    /* Ensures text stays centered even with huge fonts */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-first {
+    color: var(--accent);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5em;
+    /* Extreme wide tracking like reference */
+    text-transform: uppercase;
+    margin-bottom: -1rem;
+    /* Pull next word up into it slightly */
+}
+
+.name-last {
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    margin: 0;
+    /* Radial Metallic Gradient Effect */
+    background: radial-gradient(ellipse at center,
+            #FFFFFF 0%,
+            #D4D4D4 40%,
+            #9A9A9A 70%,
+            #5C5C5C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    /* Sharp drop shadow for 3D bevel and soft glow */
+    filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.4)) drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.9));
+}
+
+.avatar-container {
+    position: relative;
+    width: 600px;
+    /* Increased size */
+    height: 100%;
+    z-index: 1;
+    /* Behind Name layers */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    /* Pull it even further up if needed to balance with the name */
+    margin-bottom: -4rem;
+}
+
+.hero-avatar-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Soft shadow to blend the 3D render slightly with the background */
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+    /* Fade out the bottom so it blends smoothly */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* === Tablet — keep horizontal layout, scale down === */
+@media (max-width: 1024px) {
+    .hero-layout {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .hero-content {
+        max-width: 200px;
+        transform: none;
+    }
+
+    .hero-role {
+        font-size: 1.1rem;
+    }
+
+    .hero-bio {
+        font-size: 0.9rem;
+    }
+
+    .hero-center {
+        height: 440px;
+        width: 460px;
+        margin-top: -2rem;
+    }
+
+    .avatar-container {
+        width: 480px;
+        margin-bottom: -3rem;
+    }
+
+    .name-display {
+        bottom: -5%;
+    }
+}
+
+/* === Mobile — stacked: role title → big avatar → bio === */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 14rem 0 0;
+        justify-content: flex-start;
+        min-height: 100vh;
+    }
+
+    .hero-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .hero-glow {
+        width: 100%;
+        height: 50%;
+        top: 50%;
+    }
+
+    /* 1 — Role title at the very top */
+    .hero-left {
+        order: 0;
+        text-align: center;
+        padding: 1rem 1.5rem 0;
+        margin-bottom: 5rem;
+        width: 100%;
+        flex: none;
+    }
+
+    /* 2 — Avatar in the middle, big and pulled up */
+    .hero-center {
+        order: 1;
+        width: 100%;
+        height: 55vw;
+        min-height: 320px;
+        max-height: 480px;
+        margin-top: -0.5rem;
+        flex: none;
+    }
+
+    .avatar-container {
+        width: 90vw;
+        max-width: 420px;
+        margin-bottom: -3rem;
+    }
+
+    .name-display {
+        bottom: -12%;
+    }
+
+    .name-first {
+        font-size: 1.4rem;
+        letter-spacing: 0.4em;
+        margin-bottom: 0.5rem;
+    }
+
+    /* 3 — Bio text below the avatar */
+    .hero-right {
+        order: 2;
+        text-align: center;
+        padding: 1rem 2.5rem 2rem;
+        margin-top: 4rem;
+        width: 100%;
+        flex: none;
+        background: linear-gradient(to bottom, transparent, var(--bg-primary) 20%);
+    }
+
+    .hero-content {
+        max-width: 100%;
+        transform: none;
+        flex: none;
+    }
+
+    .accent-line {
+        margin: 0 auto 0.75rem;
+    }
+
+    .hero-role {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+
+    .hero-bio {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 12rem 0 0;
+    }
+
+    .hero-left {
+        padding: 0.75rem 1rem 0;
+        margin-bottom: 4rem;
+    }
+
+    .hero-center {
+        height: 60vw;
+        min-height: 280px;
+    }
+
+    .avatar-container {
+        width: 95vw;
+    }
+
+    .hero-right {
+        padding: 0.75rem 2rem 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .hero-role {
+        font-size: 1rem;
+    }
+
+    .hero-bio {
+        font-size: 0.875rem;
+    }
+
+    .name-first {
+        font-size: 1.2rem;
+        letter-spacing: 0.3em;
+        margin-bottom: 0.4rem;
+    }
+}

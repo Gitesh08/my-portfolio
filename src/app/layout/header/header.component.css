@@ -1,0 +1,198 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.header-container {
+    pointer-events: auto;
+    /* No background on container itself, the buttons have individual borders in the reference? */
+    /* Wait, looking at the image, there is no large container pill. Each button is a separate pill floating! */
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8rem;
+    /* Large gap separating them */
+}
+
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 2rem;
+    }
+}
+
+.btn-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    /* Less padding on left to hug the circle */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-pill);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.btn-pill:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-pill.active {
+    background: rgba(17, 212, 107, 0.1);
+    border-color: var(--accent);
+}
+
+.btn-pill.active .icon {
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.4);
+    transform: scale(1.05);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    /* In image they are green */
+    color: var(--bg-primary);
+    /* Icon is dark/black */
+    transition: var(--transition);
+}
+
+.btn-pill:hover .icon {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.4);
+}
+
+.mobile-text {
+    display: none;
+}
+
+/* --- Mobile Bottom Dock (Quiet Luxury iOS Style) --- */
+@media (max-width: 768px) {
+    .header {
+        top: auto;
+        bottom: 0px;
+        padding: 0 1rem 1.5rem;
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+        pointer-events: none;
+    }
+
+    .header-container {
+        pointer-events: auto;
+        width: 100%;
+        max-width: 420px;
+        background: rgba(20, 20, 20, 0.75);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 2rem;
+        padding: 0.4rem 0.5rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-links {
+        gap: 0;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .btn-pill {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.3rem;
+        padding: 0.5rem;
+        background: transparent !important;
+        border: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-radius: 0;
+        flex: 1;
+    }
+
+    .nav-label {
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: color 0.3s;
+    }
+
+    .btn-pill:hover {
+        background: transparent !important;
+        border: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+        background: transparent;
+        color: var(--text-muted);
+        box-shadow: none !important;
+    }
+
+    .icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .desktop-text {
+        display: none;
+    }
+
+    .mobile-text {
+        display: inline;
+    }
+
+    /* Active State Minimalist Highlight matching See More pill */
+    .btn-pill.active {
+        background: rgba(0, 0, 0, 0.4) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: var(--radius-pill);
+    }
+
+    .btn-pill.active .nav-label {
+        color: var(--accent);
+    }
+
+    .btn-pill.active .icon {
+        color: var(--accent);
+        transform: translateY(-2px);
+    }
+
+    .btn-pill:hover .icon, 
+    .btn-pill.active:hover .icon {
+        transform: translateY(-2px);
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .header-container {
+        padding: 0.3rem 0.2rem;
+    }
+    .nav-label {
+        font-size: 0.5rem;
+        letter-spacing: 0;
+    }
+}

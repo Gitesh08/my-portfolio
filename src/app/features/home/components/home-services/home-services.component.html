@@ -1,0 +1,47 @@
+<section class="services-section" id="services">
+    <div class="services-container">
+        <div class="services-header fade-up" appScrollAnimate>
+            <h2 class="section-title">WHAT I DO</h2>
+        </div>
+
+        <div class="services-grid">
+            <a *ngFor="let service of services; let i = index"
+                routerLink="/catalogs"
+                class="service-card fade-up delay-{{ (i % 3 + 1) * 100 }}" appScrollAnimate>
+                <div class="service-preview img-skeleton-wrapper">
+                    <div class="img-skeleton" *ngIf="!loadedImages.has('svc-' + service.id)"></div>
+                    <img [src]="service.img" alt="" class="service-img"
+                        (load)="onImageLoad('svc-' + service.id)"
+                        [class.img-loaded]="loadedImages.has('svc-' + service.id)">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">{{ service.title }}</h3>
+                    <button class="btn-circle" tabindex="-1" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </a>
+        </div>
+
+        <!-- WHAT I KNOW Section -->
+        <div class="services-header skills-header fade-up" appScrollAnimate>
+            <h2 class="section-title">WHAT I KNOW</h2>
+        </div>
+
+        <div class="skills-grid">
+            <div *ngFor="let skill of skills; let i = index" class="skill-logo fade-up delay-{{ (i % 5 + 1) * 100 }}"
+                appScrollAnimate>
+                <div class="skill-icon-wrapper img-skeleton-wrapper">
+                    <div class="img-skeleton icon-skeleton" *ngIf="!loadedImages.has('skill-' + skill.title)"></div>
+                    <img [src]="skill.icon" alt="" class="skill-icon"
+                        [class.invert-dark]="skill.invertDark"
+                        (load)="onImageLoad('skill-' + skill.title)"
+                        [class.img-loaded]="loadedImages.has('skill-' + skill.title)">
+                </div>
+                <span class="skill-name">{{ skill.title }}</span>
+            </div>
+        </div>
+    </div>
+</section>

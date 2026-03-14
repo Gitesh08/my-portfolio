@@ -1,0 +1,88 @@
+<section class="projects-page">
+    <div class="projects-container">
+        <a routerLink="/" class="btn-pill back-btn fade-up" appScrollAnimate>
+            <span class="icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </span>
+            Back to Home
+        </a>
+        <div class="page-header fade-up" appScrollAnimate>
+            <h1 class="page-title">MY CATALOG</h1>
+            <p class="page-subtitle">A curated collection of my visual designs and interfaces</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filters fade-up delay-100" appScrollAnimate>
+            <button class="filter-btn" *ngFor="let cat of categories"
+                [class.active]="selectedCategory() === cat"
+                (click)="setCategory(cat)">
+                {{ cat }}
+            </button>
+        </div>
+
+        <!-- Uniform Grid -->
+        <div class="projects-grid fade-up delay-200" appScrollAnimate>
+            <div *ngFor="let item of filteredCatalogs; let i = index"
+                class="project-card" 
+                (click)="openLightbox(i)" tabindex="0" (keydown.enter)="openLightbox(i)">
+                
+                <img [src]="item.imageUrl" [alt]="item.title" loading="lazy" class="project-bg-image">
+                <div class="project-card-gradient"></div>
+                
+                <div class="project-overlay">
+                    <span class="view-text">View Image</span>
+                </div>
+                
+                <div class="project-info">
+                    <h3 class="project-title">{{ item.title }}</h3>
+                    <span class="project-tag">{{ item.category }}</span>
+                </div>
+            </div>
+            
+            <!-- Empty State if a category has no items -->
+            <div *ngIf="filteredCatalogs.length === 0" class="empty-state">
+                <p>No items found in this category.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Full-screen Lightbox overlay -->
+<div class="lightbox-overlay" [class.open]="lightboxOpen()" (click)="closeLightbox()">
+    
+    <!-- Close Button -->
+    <button class="lightbox-close" aria-label="Close Lightbox" (click)="closeLightbox()">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
+
+    <!-- Prev Arrow -->
+    <button class="lightbox-nav prev" *ngIf="filteredCatalogs.length > 1" (click)="prevImage($event)" aria-label="Previous image">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </button>
+
+    <!-- Image Container -->
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+        <ng-container *ngIf="filteredCatalogs.length > 0">
+            <img [src]="filteredCatalogs[activeImageIndex()].imageUrl" [alt]="filteredCatalogs[activeImageIndex()].title" class="lightbox-img">
+            <div class="lightbox-caption">
+                <h4>{{ filteredCatalogs[activeImageIndex()].title }}</h4>
+                <p>{{ filteredCatalogs[activeImageIndex()].category }}</p>
+            </div>
+        </ng-container>
+    </div>
+
+    <!-- Next Arrow -->
+    <button class="lightbox-nav next" *ngIf="filteredCatalogs.length > 1" (click)="nextImage($event)" aria-label="Next image">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </button>
+</div>

@@ -1,0 +1,206 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Really deep green-black */
+  --bg-primary: #070b09;
+  --bg-surface: #0a100d;
+  --bg-surface-light: rgba(255, 255, 255, 0.03);
+
+  /* Electric green accent */
+  --accent: #11d46b;
+  /* Matched to image's greener shade instead of yellow-green */
+  --accent-hover: #15ff80;
+
+  --text-main: #FFFFFF;
+  --text-muted: #9ba3a0;
+  /* Slightly cooler grey */
+
+  --font-primary: 'Outfit', sans-serif;
+
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  /* Matched corner radius of services */
+
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background master gradient */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Deep, multi-layered gradient for quiet luxury */
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(17, 212, 107, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 10% 40%, rgba(17, 212, 107, 0.03) 0%, transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(7, 11, 9, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  background-color: var(--bg-primary);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --- Futuristic Scroll Animation Utilities --- */
+.fade-up {
+  opacity: 0;
+  /* Start lower, slightly scaled down */
+  transform: translateY(50px) scale(0.96);
+  /* Cinematic defocus effect */
+  filter: blur(12px);
+  will-change: opacity, transform, filter;
+  /* Ultra-smooth Expo-style easing for that premium, fluid feel */
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* --- Typewriter Cursor --- */
+.cursor {
+  display: inline-block;
+  font-weight: 300;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Add delays for staggered animations when needed */
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Shared Utility Classes */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.btn-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-pill.primary {
+  background: var(--accent);
+  color: #000000;
+  border-color: var(--accent);
+}
+
+.btn-pill.primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

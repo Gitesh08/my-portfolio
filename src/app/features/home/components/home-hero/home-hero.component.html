@@ -1,0 +1,35 @@
+<section class="hero-section">
+    <!-- Background glow point -->
+    <div class="hero-glow"></div>
+
+    <div class="hero-layout">
+        <!-- Left column text -->
+        <div class="hero-content hero-left fade-up" appScrollAnimate>
+            <div class="accent-line"></div>
+            <h2 class="hero-role" [appTypewriter]="5">Full-stack Web Developer<br>& Designer</h2>
+        </div>
+
+        <!-- Center Avatar & Name overlay -->
+        <div class="hero-center">
+            <!-- Avatar container (Behind name) -->
+            <div class="avatar-container fade-up delay-300" appScrollAnimate>
+                <img ngSrc="hero-image.webp" width="600" height="600" priority alt="Gitesh 3D Avatar" class="hero-avatar-img">
+            </div>
+
+            <!-- Huge name layer (In front of avatar) -->
+            <div class="name-display fade-up delay-200" appScrollAnimate>
+                <span class="name-first">GITESH</span>
+                <h1 class="name-last">MAHADIK</h1>
+            </div>
+        </div>
+
+        <!-- Right column text -->
+        <div class="hero-content hero-right fade-up delay-400" appScrollAnimate>
+            <p class="hero-bio" [appTypewriter]="15">
+                Hi, I'm Gitesh, a full-stack web developer and designer with 2+ years of experience. I help businesses
+                build and deliver efficient, scalable solutions by blending thoughtful UI design with clean, responsive
+                development to create websites that look great and perform flawlessly.
+            </p>
+        </div>
+    </div>
+</section>
