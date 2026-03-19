@@ -16,7 +16,7 @@ export class HomeServicesComponent {
         { title: 'PERFORMANCE & RESPONSIVENESS', id: 'performance', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=200' },
         { title: 'UI/UX WEBSITE DESIGN', id: 'ui-ux', img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=200' },
         { title: 'SOCIAL MEDIA DESIGN', id: 'social', img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=200' },
-        { title: 'LOGO DESIGN', id: 'logo', img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=200' }
+        { title: 'SEO & SEARCH RANKING', id: 'seo', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=200' }
     ];
 
     skills = [

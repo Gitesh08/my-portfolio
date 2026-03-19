@@ -87,8 +87,9 @@ export class BlogService {
 
   // Ordered proxies so we hit the fastest/most reliable first
   private readonly PROXIES = [
-    (u: string) => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+    (u: string) => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(u)}`,
     (u: string) => `https://corsproxy.io/?url=${encodeURIComponent(u)}`,
+    (u: string) => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
     (u: string) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
   ];
 
@@ -131,8 +132,31 @@ export class BlogService {
     const proxyFn = this.PROXIES[index];
     const proxyUrl = proxyFn(this.FEED_URL);
 
-    return this.http.get(proxyUrl, { responseType: 'text' }).pipe(
-      map(raw => this.parseRssXml(raw, 8)),
+    return this.http.get(proxyUrl).pipe(
+      map(res => {
+        // Handle rss2json format (index 0)
+        if (typeof res === 'object' && (res as any).items) {
+          return (res as any).items.slice(0, 8).map((item: any) => ({
+            title: item.title,
+            url: item.link,
+            pubDate: new Date(item.pubDate).toLocaleDateString('en-US', {
+              month: 'short', day: 'numeric', year: 'numeric',
+            }),
+            tags: item.categories || ['Blog'],
+            thumbnail: item.thumbnail || this.extractFigureImage(item.content || item.description) || FALLBACK_BLOGS[0].thumbnail,
+            readingTime: this.estimateReadingTime(item.content || item.description || ''),
+          }));
+        }
+        // Handle raw XML from other proxies
+        if (typeof res === 'string') {
+          return this.parseRssXml(res, 8);
+        }
+        // Handle AllOrigins structured JSON
+        if (typeof res === 'object' && (res as any).contents) {
+            return this.parseRssXml((res as any).contents, 8);
+        }
+        return [];
+      }),
       switchMap(blogs => {
         if (!blogs || blogs.length === 0) {
           throw new Error('Invalid or empty feed data from proxy');
@@ -140,7 +164,6 @@ export class BlogService {
         return of(blogs);
       }),
       catchError(() => {
-        // Current proxy failed or returned bad data, try the next one
         return this.fetchPostsRecursive(index + 1);
       })
     );

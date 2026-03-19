@@ -48,3 +48,7 @@ tmp-rss.js
 *.log
 build-errors.txt
 build_output.log
+
+# Web3Forms Keys
+/.env
+src/environments/

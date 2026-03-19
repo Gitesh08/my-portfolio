@@ -1,0 +1,35 @@
+<section class="process-section" id="process" #scrollSection>
+    <div class="sticky-container">
+        <!-- We use a standard container for perfect left-alignment of the title and the first card -->
+        <div class="process-container">
+            <div class="process-header">
+                <h2 class="section-title">HOW I WORK</h2>
+            </div>
+
+            <div class="track-wrapper">
+                <div class="horizontal-track" #stickyTrack
+                    [style.transform]="'translate3d(' + translateX + 'px, 0, 0)'">
+
+                    <div class="connecting-line-bg">
+                        <div class="connecting-line-fill" [style.width.%]="progressPercentage"></div>
+                    </div>
+
+                    <div *ngFor="let step of steps; let i = index" class="process-step"
+                        [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 5)">
+
+                        <div class="step-node"
+                            [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 5)"></div>
+
+                        <div class="step-card"
+                            [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 5)">
+                            <div class="step-number">STEP 0{{i + 1}}</div>
+                            <h3 class="step-title">{{ step.title }}</h3>
+                            <p class="step-desc">{{ step.desc }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

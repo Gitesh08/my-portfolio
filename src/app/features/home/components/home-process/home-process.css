@@ -1,0 +1,203 @@
+.process-section {
+    height: 400vh;
+    padding: 0;
+    background-color: var(--bg-primary);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.sticky-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: max-content;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.process-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.process-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    text-align: left;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--text-main);
+    text-transform: capitalize;
+    position: relative;
+    display: inline-block;
+}
+
+.track-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.horizontal-track {
+    display: flex;
+    gap: 8vw;
+    padding: 0;
+    width: max-content;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+    position: relative;
+    padding-right: 10vw; /* ensure last card doesn't hit edge of screen */
+}
+
+.connecting-line-bg {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem; /* Center of first 3rem node */
+    right: calc(10vw + 1.5rem); /* Track right padding + center of last node */
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.connecting-line-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
+
+.process-step {
+    width: 50vw;
+    max-width: 700px;
+    min-width: 300px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: stretch; /* Cards stretch to same height */
+}
+
+.step-node {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    position: relative;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-node.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(17, 212, 107, 0.4);
+}
+
+.step-node.active::after {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+.step-card {
+    padding: 3rem 2.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.15;
+    transform: scale(0.9) translateY(40px);
+}
+
+.step-card.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.step-number {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    transition: color 0.4s ease;
+}
+
+.step-card.active .step-number {
+    color: var(--accent);
+}
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.step-desc {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+    .process-step {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-container {
+        padding: 0 1.5rem;
+    }
+    .process-header {
+        padding-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    .section-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    .process-step {
+        width: 85vw;
+    }
+    .process-section {
+        height: 300vh;
+    }
+    .sticky-container {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .horizontal-track {
+        gap: 3rem;
+    }
+    .step-node {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .step-node.active::after {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+    .connecting-line-bg {
+        top: 0.75rem;
+        left: 0.75rem;
+        right: calc(10vw + 0.75rem);
+    }
+}

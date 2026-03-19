@@ -4,8 +4,9 @@ import { HomeHeroComponent } from './components/home-hero/home-hero.component';
 import { HomeStatementComponent } from './components/home-statement/home-statement.component';
 import { HomeServicesComponent } from './components/home-services/home-services.component';
 import { HomeProjectsComponent } from './components/home-projects/home-projects.component';
-import { HomeCatalogsComponent } from './components/home-catalogs/home-catalogs.component';
 import { HomeBlogsComponent } from './components/home-blogs/home-blogs.component';
+import { HomeProcess } from './components/home-process/home-process';
+import { HomeContact } from './components/home-contact/home-contact';
 
 @Component({
     selector: 'app-home',
@@ -17,7 +18,8 @@ import { HomeBlogsComponent } from './components/home-blogs/home-blogs.component
         HomeServicesComponent,
         HomeProjectsComponent,
         HomeBlogsComponent,
-        HomeCatalogsComponent
+        HomeProcess,
+        HomeContact
     ],
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']

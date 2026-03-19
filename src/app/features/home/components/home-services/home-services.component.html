@@ -5,8 +5,7 @@
         </div>
 
         <div class="services-grid">
-            <a *ngFor="let service of services; let i = index"
-                routerLink="/catalogs"
+            <div *ngFor="let service of services; let i = index"
                 class="service-card fade-up delay-{{ (i % 3 + 1) * 100 }}" appScrollAnimate>
                 <div class="service-preview img-skeleton-wrapper">
                     <div class="img-skeleton" *ngIf="!loadedImages.has('svc-' + service.id)"></div>
@@ -22,7 +21,7 @@
                         </svg>
                     </button>
                 </div>
-            </a>
+            </div>
         </div>
 
         <!-- WHAT I KNOW Section -->

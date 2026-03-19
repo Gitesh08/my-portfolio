@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="modal-actions">
-                    <button class="btn-pill primary" *ngIf="project.showDemoButton !== false" (click)="openLink('mailto:giteshmahadik@example.com?subject=Demo%20Request%20-%20' + project.title)">Book a Demo</button>
+                    <button class="btn-pill primary" *ngIf="project.showDemoButton !== false" (click)="openLink('mailto:giteshmahadik@example.com?subject=Demo%20Request%20-%20' + project.title)">Schedule a call</button>
                     <button class="btn-pill" *ngIf="project.showLiveButton !== false && project.liveUrl" (click)="openLink(project.liveUrl)">Visit Live Site</button>
                     <button class="btn-pill" *ngIf="project.showGithubButton && project.githubUrl" (click)="openLink(project.githubUrl)">
                         <span class="icon">

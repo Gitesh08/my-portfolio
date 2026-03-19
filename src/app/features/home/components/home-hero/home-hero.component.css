@@ -191,12 +191,11 @@
     }
 }
 
-/* === Mobile — stacked: role title → big avatar → bio === */
 @media (max-width: 768px) {
     .hero-section {
-        padding: 14rem 0 0;
+        padding: 8rem 0 4rem; /* added 4rem bottom padding */
         justify-content: flex-start;
-        min-height: 100vh;
+        min-height: unset; /* allows container to wrap content naturally */
     }
 
     .hero-layout {
@@ -213,12 +212,11 @@
         top: 50%;
     }
 
-    /* 1 — Role title at the very top */
     .hero-left {
         order: 0;
         text-align: center;
         padding: 1rem 1.5rem 0;
-        margin-bottom: 5rem;
+        margin-bottom: 8rem; /* significantly increased to create huge gap */
         width: 100%;
         flex: none;
     }
@@ -230,7 +228,7 @@
         height: 55vw;
         min-height: 320px;
         max-height: 480px;
-        margin-top: -0.5rem;
+        margin-top: 2rem; /* changed from -0.5rem to push further down from title */
         flex: none;
     }
 
@@ -250,12 +248,11 @@
         margin-bottom: 0.5rem;
     }
 
-    /* 3 — Bio text below the avatar */
     .hero-right {
         order: 2;
         text-align: center;
         padding: 1rem 2.5rem 2rem;
-        margin-top: 4rem;
+        margin-top: 6rem;
         width: 100%;
         flex: none;
         background: linear-gradient(to bottom, transparent, var(--bg-primary) 20%);
@@ -286,12 +283,12 @@
 
 @media (max-width: 480px) {
     .hero-section {
-        padding: 12rem 0 0;
+        padding: 6.5rem 0 4rem;
     }
 
     .hero-left {
         padding: 0.75rem 1rem 0;
-        margin-bottom: 4rem;
+        margin-bottom: 6rem; /* significantly increased */
     }
 
     .hero-center {
@@ -305,7 +302,7 @@
 
     .hero-right {
         padding: 0.75rem 2rem 1.5rem;
-        margin-top: 3rem;
+        margin-top: 4.5rem;
     }
 
     .hero-role {
