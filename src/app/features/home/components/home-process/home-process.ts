@@ -16,7 +16,7 @@ export class HomeProcess implements AfterViewInit {
     progressPercentage = 0;
 
     steps = [
-        { title: 'Discovery & Strategy', desc: 'Understanding your goals, target audience, and project constraints. We start with a solid foundation to ensure the project aligns perfectly your vision.' },
+        { title: 'Discovery & Strategy', desc: 'Understanding goals, target audience, and project constraints. We start with a solid foundation to ensure the project aligns perfectly with vision.' },
         { title: 'Design & Prototyping', desc: 'Creating wireframes and high-fidelity mockups. I craft intuitive user interfaces that are not just beautiful, but highly user-centric.' },
         { title: 'Development', desc: 'Bringing the designs to life with clean, scalable, and responsive code. Building robust architectures tailored for long-term growth.' },
         { title: 'Launch & SEO', desc: 'Deploying the application, optimizing performance, and ensuring the website ranks well on search engines to reach audience effectively.' }
@@ -46,9 +46,9 @@ export class HomeProcess implements AfterViewInit {
         const trackWidth = this.stickyTrack.nativeElement.scrollWidth;
         const wrapper = this.stickyTrack.nativeElement.parentElement;
         const wrapperLeft = wrapper ? wrapper.getBoundingClientRect().left : 0;
-        
+
         // Add padding to ensure the last card fully sweeps onto the screen
-        const paddingRight = 40; 
+        const paddingRight = 40;
         const maxTranslate = Math.max(0, wrapperLeft + trackWidth - window.innerWidth + paddingRight);
 
         this.translateX = -(progress * maxTranslate);

@@ -12,11 +12,12 @@ import { ScrollAnimate } from '../../../../shared/directives/scroll-animate';
 })
 export class HomeServicesComponent {
     services = [
-        { title: 'WEBSITE DEVELOPMENT', id: 'web-dev', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=200' },
-        { title: 'PERFORMANCE & RESPONSIVENESS', id: 'performance', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=200' },
-        { title: 'UI/UX WEBSITE DESIGN', id: 'ui-ux', img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=200' },
-        { title: 'SOCIAL MEDIA DESIGN', id: 'social', img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=200' },
-        { title: 'SEO & SEARCH RANKING', id: 'seo', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=200' }
+        { title: 'CUSTOMIZE WEBSITE DEVELOPMENT', id: 'web-dev', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=600' },
+        { title: 'PERFORMANCE & RESPONSIVENESS', id: 'performance', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600' },
+        { title: 'UI/UX WEBSITE DESIGN', id: 'ui-ux', img: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=600' },
+        { title: 'SOCIAL MEDIA DESIGN', id: 'social', img: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=600' },
+        { title: 'SEO FRIENDLY', id: 'seo', img: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=600' },
+        { title: 'AI INTEGRATION', id: 'ai', img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600' }
     ];
 
     skills = [
@@ -24,6 +25,12 @@ export class HomeServicesComponent {
         { title: 'TYPESCRIPT', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
         { title: 'JAVASCRIPT', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
         { title: 'PYTHON', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+        { title: 'FASTAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
+        { title: 'GCP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg' },
+        { title: 'AZURE', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg' },
+        { title: 'MYSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+        { title: 'MONGODB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+        { title: 'TENSORFLOW', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
         { title: 'NODE.JS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg' },
         { title: 'EXPRESS.JS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg', invertDark: true },
         { title: 'TAILWINDCSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
