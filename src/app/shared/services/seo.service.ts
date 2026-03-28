@@ -7,7 +7,6 @@ export interface SeoConfig {
   description: string;
   keywords?: string;
   url?: string;
-  image?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -17,12 +16,10 @@ export class SeoService {
   private doc = inject(DOCUMENT);
 
   private readonly siteUrl = 'https://gitesh.is-a.dev';
-  private readonly defaultImage = 'https://gitesh.is-a.dev/og-image.png';
 
   updateMeta(config: SeoConfig): void {
     const fullTitle = config.title;
     const url = config.url ? `${this.siteUrl}${config.url}` : this.siteUrl;
-    const image = config.image ?? this.defaultImage;
 
     // Title
     this.title.setTitle(fullTitle);
@@ -37,12 +34,10 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:title', content: fullTitle });
     this.meta.updateTag({ property: 'og:description', content: config.description });
     this.meta.updateTag({ property: 'og:url', content: url });
-    this.meta.updateTag({ property: 'og:image', content: image });
 
     // Twitter Card
     this.meta.updateTag({ name: 'twitter:title', content: fullTitle });
     this.meta.updateTag({ name: 'twitter:description', content: config.description });
-    this.meta.updateTag({ name: 'twitter:image', content: image });
 
     // Canonical
     this.setCanonical(url);
