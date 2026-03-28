@@ -30,7 +30,9 @@
     "@angular/core": "^21.1.0",
     "@angular/forms": "^21.1.0",
     "@angular/platform-browser": "^21.1.0",
+    "@angular/platform-server": "^21.2.6",
     "@angular/router": "^21.1.0",
+    "@angular/ssr": "^21.2.5",
     "country-flag-icons": "^1.6.15",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"

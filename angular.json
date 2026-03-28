@@ -19,7 +19,7 @@
           "options": {
             "optimization": {
               "fonts": {
-                "inline": false
+                "inline": true
               }
             },
             "browser": "src/main.ts",
@@ -32,7 +32,8 @@
             ],
             "styles": [
               "src/styles.css"
-            ]
+            ],
+            "server": "src/main.server.ts"
           },
           "configurations": {
             "production": {

@@ -4,7 +4,8 @@ import {
   OnDestroy,
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  inject
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { take } from 'rxjs';
 import { ScrollAnimate } from '../../shared/directives/scroll-animate';
 import { BlogService, BlogPost } from '../../shared/services/blog.service';
+import { SeoService } from '../../shared/services/seo.service';
 
 
 
@@ -29,9 +31,17 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnDestroy {
   isLoading = true;
   autoPlayInterval: any;
 
-  constructor(private blogService: BlogService, private cdr: ChangeDetectorRef) { }
+  private blogService = inject(BlogService);
+  private cdr = inject(ChangeDetectorRef);
+  private seo = inject(SeoService);
 
   ngOnInit(): void {
+    this.seo.updateMeta({
+      title: 'Blog | Gitesh Mahadik — Full-Stack Web Developer',
+      description: 'Read articles and insights by Gitesh Mahadik on full-stack development, Angular, web design, AI integration, and more.',
+      keywords: 'Gitesh Mahadik blog, Gitesh developer articles, full stack development blog, Angular tips, web development insights',
+      url: '/blogs'
+    });
     this.fetchMediumPosts();
   }
 
