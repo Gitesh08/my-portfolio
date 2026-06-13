@@ -9,7 +9,7 @@
                 class="service-card fade-up delay-{{ (i % 3 + 1) * 100 }}" appScrollAnimate>
                 <div class="service-preview img-skeleton-wrapper">
                     <div class="img-skeleton" *ngIf="!loadedImages.has('svc-' + service.id)"></div>
-                    <img [src]="service.img" alt="" class="service-img"
+                    <img [src]="service.img" alt="" loading="lazy" class="service-img"
                         (load)="onImageLoad('svc-' + service.id)"
                         [class.img-loaded]="loadedImages.has('svc-' + service.id)">
                 </div>
@@ -34,7 +34,7 @@
                 appScrollAnimate>
                 <div class="skill-icon-wrapper img-skeleton-wrapper">
                     <div class="img-skeleton icon-skeleton" *ngIf="!loadedImages.has('skill-' + skill.title)"></div>
-                    <img [src]="skill.icon" alt="" class="skill-icon"
+                    <img [src]="skill.icon" alt="" loading="lazy" class="skill-icon"
                         [class.invert-dark]="skill.invertDark"
                         (load)="onImageLoad('skill-' + skill.title)"
                         [class.img-loaded]="loadedImages.has('skill-' + skill.title)">
