@@ -38,7 +38,7 @@ export const ALL_PROJECTS: Project[] = [
       'katsura-images/image-1.png',
       'katsura-images/image-2.png',
     ],
-    githubUrl: 'https://github.com/Gitesh08/katwate-resort',
+    githubUrl: 'https://github.com/Gitesh08/katsura-resort',
     liveUrl: 'https://resort-demo-ten.vercel.app',
     role: 'Full Stack Developer',
     client: 'Personal Showcase',
