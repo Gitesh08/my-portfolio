@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
@@ -7,12 +8,18 @@ import { filter, map, mergeMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SeoService {
+  private isBrowser: boolean;
+
   constructor(
     private titleService: Title,
     private metaService: Meta,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    @Inject(DOCUMENT) private doc: Document,
+    @Inject(PLATFORM_ID) platformId: object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   init() {
     this.router.events
@@ -59,13 +66,13 @@ export class SeoService {
   }
 
   private updateCanonicalUrl(url: string) {
-    const head = document.getElementsByTagName('head')[0];
-    let element: HTMLLinkElement | null = document.querySelector(`link[rel='canonical']`) || null;
-    if (element == null) {
-      element = document.createElement('link') as HTMLLinkElement;
-      head.appendChild(element);
+    if (!this.doc) return;
+    let element: HTMLLinkElement | null = this.doc.querySelector(`link[rel='canonical']`);
+    if (!element) {
+      element = this.doc.createElement('link');
+      element.setAttribute('rel', 'canonical');
+      this.doc.head?.appendChild(element);
     }
-    element.setAttribute('rel', 'canonical');
     element.setAttribute('href', url);
   }
 }

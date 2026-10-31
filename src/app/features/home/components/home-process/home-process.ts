@@ -1,5 +1,5 @@
-import { Component, ElementRef, HostListener, ViewChild, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, HostListener, ViewChild, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-home-process',
@@ -14,6 +14,11 @@ export class HomeProcess implements AfterViewInit {
 
     translateX = 0;
     progressPercentage = 0;
+    private isBrowser: boolean;
+
+    constructor(@Inject(PLATFORM_ID) platformId: object) {
+        this.isBrowser = isPlatformBrowser(platformId);
+    }
 
     steps = [
         { title: 'Discovery & Strategy', desc: 'Understanding goals, target audience, and project constraints. We start with a solid foundation to ensure the project aligns perfectly with vision.' },
@@ -23,12 +28,13 @@ export class HomeProcess implements AfterViewInit {
     ];
 
     ngAfterViewInit() {
+        if (!this.isBrowser) return;
         this.onScroll();
     }
 
     @HostListener('window:scroll')
     onScroll() {
-        if (!this.scrollSection || !this.stickyTrack) return;
+        if (!this.isBrowser || !this.scrollSection || !this.stickyTrack) return;
 
         const section = this.scrollSection.nativeElement;
         const rect = section.getBoundingClientRect();

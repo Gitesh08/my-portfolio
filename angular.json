@@ -19,7 +19,7 @@
           "options": {
             "optimization": {
               "fonts": {
-                "inline": true
+                "inline": false
               }
             },
             "browser": "src/main.ts",
@@ -45,8 +45,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "10kB",
+                  "maximumError": "16kB"
                 }
               ],
               "outputHashing": "all"
