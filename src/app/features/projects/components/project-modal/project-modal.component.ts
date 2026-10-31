@@ -37,6 +37,11 @@ export class ProjectModalComponent implements OnChanges {
         }
     }
 
+    isVideo(path?: string): boolean {
+        if (!path) return false;
+        return path.endsWith('.mp4') || path.endsWith('.webm') || path.endsWith('.ogg');
+    }
+
     prevImage(event: Event) {
         event.stopPropagation();
         if (!this.project?.images?.length) return;
@@ -78,11 +83,13 @@ export class ProjectModalComponent implements OnChanges {
 
     galleryPrev(event: Event) {
         event.stopPropagation();
+        if (!this.galleryImages.length) return;
         this.galleryIndex = (this.galleryIndex > 0) ? this.galleryIndex - 1 : this.galleryImages.length - 1;
     }
 
     galleryNext(event: Event) {
         event.stopPropagation();
+        if (!this.galleryImages.length) return;
         this.galleryIndex = (this.galleryIndex < this.galleryImages.length - 1) ? this.galleryIndex + 1 : 0;
     }
 
