@@ -58,9 +58,9 @@ export const ALL_PROJECTS: Project[] = [
   },
   {
     id: 2,
-    title: 'Nailed Studio (Personal Showcase)',
-    tags: ['Angular 21', 'Firebase', 'Lenis', 'GSAP'],
-    description: 'A high-performance, boutique management system for luxury studios. Centralizing real-time platform scheduling that maintains a premium brand experience.',
+    title: 'LuxeSalon (Personal Showcase)',
+    tags: ['Next.js 15', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Zustand'],
+    description: 'A high-end salon management and client experience platform featuring dual-view architecture, real-time token queue tracking, and an integrated admin operations dashboard.',
     imageUrl: 'nail-studio-images/image-1.png',
     images: [
       'nail-studio-images/image-1.png',
@@ -68,21 +68,24 @@ export const ALL_PROJECTS: Project[] = [
       'nail-studio-images/image-3.png',
       'nail-studio-images/image-4.png',
     ],
-    liveUrl: 'https://nail-studio-blush.vercel.app',
+    githubUrl: 'https://github.com/Gitesh08/luxesalon',
+    liveUrl: 'https://luxesalon-sandy.vercel.app/',
     role: 'Full Stack Developer',
     client: 'Personal Showcase',
-    technologies: ['Angular 21', 'Firebase', 'Lenis', 'GSAP'],
+    technologies: ['Next.js 15', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Zustand'],
     overview: [
-      'I built this project to demonstrate a high-performance, boutique management system for luxury studios. The goal was to solve a critical operational gap: moving from manual, fragmented scheduling to a centralized, real-time platform that maintains a premium brand experience.'
+      'LuxeSalon is a premium salon management and customer experience platform designed to solve common salon industry challenges: chaotic walk-in queues and lack of live transparency between salon owners and clients.',
+      'It features a unified dual-view interface allowing seamless switching between an interactive customer booking storefront and an operational owner admin dashboard, synchronized purely client-side.'
     ],
     highlights: [
-      { title: 'Architecture', description: 'Built with Angular 21 to leverage the latest signals-based state management and a highly modular, component-driven UI.' },
-      { title: 'Real-time Data', description: 'Integrated Firebase to handle live syncing for appointment bookings, ensuring the admin dashboard and client storefront are always in lockstep.' },
-      { title: 'Admin Suite', description: 'Developed a specialized management dashboard featuring real-time appointment tracking, dynamic service configuration, and organized guest data management.' },
-      { title: 'Premium UX', description: 'Implemented a "Quiet Luxury" design system using GSAP for sophisticated micro-interactions and Lenis for smooth, high-fidelity scrolling behaviors.' }
+      { title: 'Architecture & State', description: 'Built with Next.js 15 (App Router), TypeScript, and Zustand with reactive LocalStorage persistence and BroadcastChannel sync across tabs without requiring a backend.' },
+      { title: 'Real-time Queue & Booking', description: 'Engineered an interactive multi-step booking wizard with visual service and time-slot pickers, automated token generation (#A-042), and live queue wait-time estimation.' },
+      { title: 'Admin Operations Suite', description: 'Developed an extensive management dashboard featuring a Bento-grid metrics overview, live queue manager with standby logic, bookings calendar, and dynamic menu & offers editor.' },
+      { title: 'Editorial Luxury UX', description: 'Implemented "The Appointment Card" editorial design aesthetic using Cormorant Garamond typography, brushed gold accents, zero card grids, and fluid Framer Motion animations.' }
     ],
     showDemoButton: true,
     showLiveButton: true,
+    showGithubButton: true,
     showOnHome: true
   },
   {
@@ -155,22 +158,5 @@ export const ALL_PROJECTS: Project[] = [
     showLiveButton: false,
     showGithubButton: true,
     showOnHome: true
-  },
-  {
-    id: 5,
-    title: 'Mermaid Diagram Generator',
-    tags: ['Python', 'AI/LLM', 'Gemini API'],
-    description: 'Turn your ideas into beautiful, professional workflow diagrams just by describing them in plain English using Gemini AI.',
-    imageUrl: 'https://via.placeholder.com/1200x675/8b5cf6/ffffff?text=Mermaid+Diagram+Generator',
-    githubUrl: 'https://github.com/Gitesh08/mermaid-diagram',
-    blogUrl: 'https://medium.com/google-cloud/how-to-generate-workflow-diagrams-using-gemini-8d3d538bd2e7',
-    technologies: ['Python', 'Google Gemini Pro API', 'Mermaid.js'],
-    overview: [
-      'As developers, creating system architectures and workflow diagrams can be tedious. I built this tool to automate the process using Google\'s Gemini LLM. You simply type what you want, and it writes the Mermaid.js syntax and renders the diagram in real-time.'
-    ],
-    showDemoButton: false,
-    showLiveButton: false,
-    showGithubButton: true,
-    showOnHome: false
   }
 ];
