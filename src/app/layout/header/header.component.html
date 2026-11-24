@@ -47,3 +47,12 @@
     </nav>
   </div>
 </header>
+
+<!-- Ambient Floating Winter Charm (Top-Right Corner) -->
+<button type="button" (click)="toggleWinterMode()" [class.active]="winterService.isWinterMode()"
+  class="winter-charm" [attr.aria-pressed]="winterService.isWinterMode()"
+  [title]="winterService.isWinterMode() ? 'Disable Winter Mode' : 'Enable Winter Mode'"
+  aria-label="Toggle Winter Mode">
+  <span class="winter-charm-icon" aria-hidden="true">❆</span>
+  <span class="winter-charm-label">Winter</span>
+</button>

@@ -1,5 +1,10 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
 .process-section {
-    height: 400vh;
+    height: 350vh;
     padding: 0;
     background-color: var(--bg-primary);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -10,12 +15,14 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    height: max-content;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    justify-content: center;
+    padding: 2rem 0;
+    box-sizing: border-box;
+    will-change: transform;
 }
 
 .process-container {
@@ -28,7 +35,7 @@
 .process-header {
     width: 100%;
     margin-bottom: 2rem;
-    padding-top: 2rem;
+    padding-top: 0;
     text-align: left;
 }
 
@@ -52,7 +59,6 @@
     padding: 0;
     width: max-content;
     will-change: transform;
-    transition: transform 0.1s ease-out;
     position: relative;
     padding-right: 10vw; /* ensure last card doesn't hit edge of screen */
 }
@@ -167,8 +173,8 @@
         padding: 0 1.5rem;
     }
     .process-header {
-        padding-top: 1rem;
-        margin-bottom: 2rem;
+        padding-top: 0;
+        margin-bottom: 1.5rem;
     }
     .section-title {
         font-size: clamp(1.5rem, 4vw, 2rem);
@@ -177,14 +183,21 @@
         width: 85vw;
     }
     .process-section {
-        height: 300vh;
+        height: 250vh;
     }
     .sticky-container {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+        height: 100vh;
+        padding: 1rem 0;
     }
     .horizontal-track {
-        gap: 3rem;
+        gap: 2rem;
+    }
+    .step-card {
+        padding: 1.8rem 1.5rem;
+        gap: 1rem;
+    }
+    .step-desc {
+        font-size: 0.95rem;
     }
     .step-node {
         width: 1.5rem;

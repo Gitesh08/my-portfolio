@@ -33,6 +33,7 @@ export class HomeProcess implements AfterViewInit {
     }
 
     @HostListener('window:scroll')
+    @HostListener('window:resize')
     onScroll() {
         if (!this.isBrowser || !this.scrollSection || !this.stickyTrack) return;
 

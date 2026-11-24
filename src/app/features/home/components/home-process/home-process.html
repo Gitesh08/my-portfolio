@@ -15,13 +15,13 @@
                     </div>
 
                     <div *ngFor="let step of steps; let i = index" class="process-step"
-                        [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 5)">
+                        [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 10)">
 
                         <div class="step-node"
-                            [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 5)"></div>
+                            [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 10)"></div>
 
                         <div class="step-card"
-                            [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 5)">
+                            [class.active]="progressPercentage >= (i * (100 / (steps.length - 1)) - 10)">
                             <div class="step-number">STEP 0{{i + 1}}</div>
                             <h3 class="step-title">{{ step.title }}</h3>
                             <p class="step-desc">{{ step.desc }}</p>

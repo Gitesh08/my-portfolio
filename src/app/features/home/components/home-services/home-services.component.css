@@ -20,14 +20,14 @@
     padding-top: 4rem;
 }
 
-/* Full-width separator before WHAT I KNOW — breaks out of the max-width container */
+/* Full-width separator before WHAT I KNOW — spans across container safely without horizontal overflow */
 .skills-header::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
+    left: 0;
+    right: 0;
+    width: 100%;
     height: 1px;
     background: rgba(255, 255, 255, 0.1);
 }

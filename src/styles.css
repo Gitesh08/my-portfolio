@@ -38,6 +38,7 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -203,4 +204,15 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Winter Mode Atmospheric Touches */
+[data-theme-winter="true"] ::selection {
+  background: rgba(165, 231, 250, 0.35);
+  color: #ffffff;
+}
+
+[data-theme-winter="true"] .footer {
+  border-top-color: rgba(180, 225, 255, 0.25);
+  transition: border-color 0.5s ease;
 }

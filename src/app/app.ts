@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SeoService } from './core/services/seo.service';
+import { SnowCanvasComponent } from './shared/components/snow-canvas/snow-canvas.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, SnowCanvasComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
