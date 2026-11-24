@@ -5,6 +5,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { environment } from '../../../../../environments/environment';
+import { AnalyticsService } from '../../../../core/services/analytics.service';
 // @ts-ignore
 import * as flags from 'country-flag-icons/string/3x2';
 
@@ -153,7 +154,11 @@ export class HomeContact {
 
   selectedCountry!: { code: string; dial: string; name: string; flag: SafeHtml };
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
+  constructor(
+    private http: HttpClient,
+    private sanitizer: DomSanitizer,
+    private analytics: AnalyticsService
+  ) {
     this.countryCodes = this.DIAL_MAP.map(([code, dial, name]) => ({
       code, dial, name,
       flag: this.sanitizer.bypassSecurityTrustHtml((flags as Record<string, string>)[code] ?? '')
@@ -213,6 +218,12 @@ export class HomeContact {
       next: (res) => {
         this.isSubmitting = false;
         this.isSuccess = true;
+
+        // Track standard Google Analytics lead generation conversion
+        this.analytics.trackEvent('generate_lead', {
+          form_name: 'contact_form',
+          method: 'web3forms'
+        });
 
         // Store submission time
         localStorage.setItem('lastContactSubmit', Date.now().toString());

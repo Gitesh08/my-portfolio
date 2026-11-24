@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SeoService } from './core/services/seo.service';
+import { AnalyticsService } from './core/services/analytics.service';
 import { SnowCanvasComponent } from './shared/components/snow-canvas/snow-canvas.component';
 
 @Component({
@@ -15,7 +16,11 @@ import { SnowCanvasComponent } from './shared/components/snow-canvas/snow-canvas
 export class App {
   title = 'portfolio-new';
 
-  constructor(private seoService: SeoService) {
+  constructor(
+    private seoService: SeoService,
+    private analyticsService: AnalyticsService
+  ) {
     this.seoService.init();
+    this.analyticsService.init();
   }
 }
